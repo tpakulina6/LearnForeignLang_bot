@@ -1,0 +1,43 @@
+name: tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint python code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run linters
+        uses: ricardochaves/python-lint@v1.3.0
+        with:
+          python-root-list: "bot.py tests"
+          use-black: false
+          use-isort: false
+          use-mypy: false
+          extra-pylint-options: "--disable=E0401,C0114,C0115,C0116 --max-line-length=120"
+          extra-pycodestyle-options: "--ignore=E501,W503"
+          extra-flake8-options: "--ignore=E501,W503"
+
+  test:
+    name: Test python code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Test with pytest
+        run: python -m pytest tests
