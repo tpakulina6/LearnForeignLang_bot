@@ -197,11 +197,11 @@ def unset_lang(update: Update, context: CallbackContext):
 
             string_with_time = print_new_time(diff_time)
             update.message.reply_text(
-                    'Очень жаль, что вы не хотите изучать этот язык. '
-                    'Но у вас есть еще что изучать. ' + string_with_time + ' Если вы '
-                    'хотите изменить время, то использойте '
-                    '/change_time <minutes(best_time_for_you - Moscow_time)>'
-                )
+                'Очень жаль, что вы не хотите изучать этот язык. '
+                'Но у вас есть еще что изучать. ' + string_with_time + ' Если вы '
+                'хотите изменить время, то использойте '
+                '/change_time <minutes(best_time_for_you - Moscow_time)>'
+            )
         else:
             current_jobs = context.job_queue.get_jobs_by_name(str(chat_id))
             for job in current_jobs:
