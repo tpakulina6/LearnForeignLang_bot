@@ -154,3 +154,7 @@ dmypy.json
 cython_debug/
 
 .idea
+
+telebot.db
+
+.DS_Store
