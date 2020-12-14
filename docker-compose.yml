@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  bot:
+    container_name: bot
+    restart: always
+    image: tpakulina/learn_foreign_lang_bot:latest
+    command: sh -c "python bot.py"
+    env_file:
+    - .env
+    expose:
+    - 2112
+    networks:
+    - monitor-net
+
+networks:
+  monitor-net:
+    external:
+      name: dockprom_monitor-net
