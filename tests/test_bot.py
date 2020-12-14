@@ -1,5 +1,5 @@
-import pytest
 import sqlite3
+import pytest
 from bot import (
     time_start_end,
     print_new_time,

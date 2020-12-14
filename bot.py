@@ -1,3 +1,5 @@
+# pylint: disable=unused-argument
+
 import datetime
 import logging
 import random
