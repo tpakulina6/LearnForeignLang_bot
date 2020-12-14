@@ -1,4 +1,4 @@
-# pylint: disable=unused-argument, too-many-locals, too-many-arguments
+# pylint: disable=unused-argument, too-many-locals
 
 import datetime
 import logging
